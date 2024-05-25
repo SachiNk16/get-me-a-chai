@@ -1,7 +1,19 @@
+"use client"
 import React from 'react'
 import Link from 'next/link'
+import { useSession, signIn, signOut } from "next-auth/react"
 
 export const Navbar = () => {
+  const {data:session}=useSession()
+  if (session) {
+    return 
+      <>
+        Signed in as {session.user.email} <br />
+        <button onClick={() => signOut()}>Sign out</button>
+      </>
+    
+  }
+
   return (
     <nav className='bg-blue-950 text-white flex justify-between px-4 items-center h-16'>
         <div className='logo font-bold text-lg'>GetMeaChai</div>
@@ -24,3 +36,6 @@ export const Navbar = () => {
 }
 
 export default Navbar
+
+
+/// 55:27
