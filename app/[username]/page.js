@@ -2,7 +2,9 @@ import React from 'react'
 
 const Username = ({params}) => {
   return (
-    <div>page</div>
+    <div className='text-white'>
+    {params.username}
+    </div>
   )
 }
 
